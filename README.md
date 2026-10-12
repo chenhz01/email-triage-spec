@@ -2,6 +2,8 @@
 
 email-triage-spec defines a declarative rule format — sender/recipient/subject/keyword token conditions mapped to a 0–100 priority and an action — plus a deterministic classifier and a linter that flags malformed rules, dead (shadowed) rules, and same-priority conflicts. Use it when your inbox rules have grown past a screenful and nobody can say anymore which rule wins, or why.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Mail rules accrete. A rule set written over years has overlapping conditions, two rules fighting at the same priority with different actions, and narrow rules buried under broad ones that make them dead code. Every mail client hides this as execution-order semantics that nobody can audit. What is missing is a *specification layer*: rules as reviewable JSON, a documented winner policy, and a checker that says "this rule can never fire" or "these two rules tie arbitrarily" before you ship the config.
