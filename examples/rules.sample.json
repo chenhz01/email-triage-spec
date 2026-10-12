@@ -1,0 +1,29 @@
+{
+ "rules": [
+  {
+   "id": "vip-boss",
+   "priority": 100,
+   "match": {"from_contains": ["boss@corp-example.com"]},
+   "action": "label:p0"
+  },
+  {
+   "id": "teammates",
+   "priority": 80,
+   "match": {"from_contains": ["@corp-example.com"]},
+   "action": "label:work"
+  },
+  {
+   "id": "alerts",
+   "priority": 90,
+   "match": {"subject_contains": ["alert", "down", "pager"]},
+   "action": "forward:hcac4735@agent.qq.com"
+  },
+  {
+   "id": "newsletters",
+   "priority": 10,
+   "match": {"subject_contains": ["digest", "weekly"], "body_keywords": ["unsubscribe"]},
+   "action": "archive"
+  }
+ ],
+ "default": {"priority": 0, "action": "inbox"}
+}
